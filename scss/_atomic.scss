@@ -1,0 +1,36 @@
+@import url(../fonts/Rubik-Bold.css);
+@import url(../fonts/Rubik-Medium.css);
+@import url(../fonts/Rubik-Regular.css);
+
+body {
+    overflow-x: hidden;
+}
+
+.r-bold {
+    font-family: 'Rubik-Bold', sans-serif;
+}
+.r-med {
+    font-family: 'Rubik-Medium', sans-serif;
+}
+.r-reg {
+    font-family: 'Rubik-Regular', sans-serif;
+}
+
+.c-l-grey {
+    color: #4F5665;
+}
+.c-d-grey {
+    color: #0B132A;
+}
+
+.fz-16 {
+    font-size: 1rem;
+    line-height: 1.875rem;
+    color: #4F5665;
+}
+
+.container {
+    max-width: 1172px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
