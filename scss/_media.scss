@@ -15,20 +15,6 @@
         }
     }
 
-    .plan__button {
-        &:hover {
-            background-color: #F53838;
-
-            p {
-                color: #fff;
-            }
-            .plan__button-blur {
-                visibility: visible;
-                opacity: 1;
-            }
-        }
-    }
-
     .arrow {
         &:hover {
             background: #F53838;
@@ -198,6 +184,173 @@
             filter: blur(24px);
             top: 20px;
             left: 15px;
+        }
+    }
+
+    .section__info {
+        min-height: 200px;
+        padding-top: 80px;
+    }
+    .info {
+        &__info-block {
+            width: 21.25rem;
+            flex-direction: column;
+            padding: 26px;
+        }
+        &__block {
+            gap: 22px;
+            align-items: center;
+            min-height: 50px;
+
+            &:first-child {
+                padding: 50px;
+            }
+            &:nth-child(2) {
+                padding: 50px;
+            }
+            &:last-child {
+                padding: 50px;
+            }
+            &:not(:last-child) {
+                border-right: 0;
+                border-bottom: 2px solid #EEEFF2;
+            }
+        }
+        &__icon-block img {
+            width: 40px;
+            height: 40px;
+        }
+        &__text-block {
+            gap: 0;
+        }
+        &__numbers {
+            font-size: 1.25rem;
+            line-height: 1.475rem;
+        }
+        &__name {
+            font-size: 1.125rem;
+            line-height: 1.475rem;
+        }
+        &__blur-block {
+            width: 18.75rem;
+            height: 25rem;
+            filter: blur(50px);
+            top: 15px;
+            left: 20px;
+        }
+    }
+
+    .section__features-content {
+        min-height: 200px;
+        padding-top: 30px;
+        padding-bottom: 65px;
+    }
+    .features-content {
+        display: flex;
+        justify-content: flex-end;
+        gap: 170px;
+        
+        &__image-block {
+            display: none;
+        }
+        &__content-block {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 54px;
+        }
+        &__header-block {
+            width: 21.25rem;
+        }
+        &__header {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
+        &__text-block {
+            width: 21.25rem;
+        }
+        &__list {
+            gap: 6px;
+        }
+        &__item {
+            font-size: 0.875rem;
+            padding-left: 32px;
+        }
+    }
+
+    .section__plan {
+        min-height: 200px;
+    }
+    .plan {
+        gap: 30px;
+        padding-bottom: 60px;
+    
+        &__title-block {
+            gap: 10px;
+            padding-top: 40px;
+        }
+        &__title-header {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
+        &__title-text-block {
+            width: 21.25rem;
+        }
+        &__plans-block {
+            flex-direction: column;
+            gap: 20px;
+        }
+        &__plan-block {
+            width: 20.625rem;
+            height: 21rem;
+            border-radius: 10px;
+            padding: 35px 70px 20px 70px;
+        }
+        &__img-block {
+            display: none;
+        }
+        &__text-block {
+            gap: 6px;
+        }
+        &__header {
+            font-size: 1.125rem;
+            line-height: 1.6rem;
+        }
+        &__list {
+            gap: 0;
+        }
+        &__item {
+            font-size: 0.875rem;
+            line-height: 1.6rem;
+        }
+        &__price-button-block {
+            gap: 6px;
+        }
+        &__price {
+            font-size: 1.125rem;
+            line-height: 1.5rem;
+        }
+        &__button {
+            width: 9.125rem;
+            height: 2.188rem;
+            border-radius: 50px;
+    
+            p {
+                font-size: 0.9rem;
+            }
+        }
+        &__button-blur {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            width: 7.938rem;
+            height: 2.813rem;
+            background: rgba(245, 56, 56, 0.35);
+            filter: blur(27px);
+            border-radius: 60px;
+            top: 17px;
+            left: 25px;
+            z-index: 1;
         }
     }
 }

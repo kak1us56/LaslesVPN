@@ -239,6 +239,19 @@ header {
     min-height: 2083px;
     background: linear-gradient(180deg, #F8F8F8 -45.04%, rgba(248, 248, 248, 0) 88.56%);
 }
+.plan__button {
+    &:hover {
+        background-color: #F53838;
+
+        p {
+            color: #fff;
+        }
+        .plan__button-blur {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
 .plan {
     display: flex;
     flex-direction: column;
