@@ -57,7 +57,7 @@
 
 @media(max-width: 420px) {
     .container {
-        max-width: 340px;
+        max-width: 372px;
     }
 
     body.active {
@@ -76,15 +76,15 @@
             flex-direction: column;
         }
         &__link {
-            width: 44px;
-            font-size: 0.75rem;
+            width: 48px;
+            font-size: 0.875rem;
         }
         &__button {
             width: 5.188rem;
             height: 1.563rem;
     
             p {
-                font-size: 0.75rem;
+                font-size: 0.875rem;
             }
         }
         &__buttons-block {
@@ -115,10 +115,9 @@
         padding: 80px 10px 30px 10px;
         transition: all .3s linear;
         transform: translate(0, -100%);
-
-        &__item {
-            font-size: 40px;
-        }
+    }
+    .header-nav__item {
+        font-size: 2rem;
     }
     .header__buttons-block {
         padding-right: 30px;
@@ -159,5 +158,46 @@
     }
     .header__burger.active span:nth-child(3) {
         transform: rotate(-45deg);
+    }
+
+    .section {
+        &__header-start {
+            padding-top: 92px;
+            min-height: 100px;
+        }
+        &__img-block {
+            display: none;
+        }
+    }
+    .header-start {
+        &__content-block {
+            text-align: center;
+            width: 21.25rem;
+            align-items: center;
+        }
+        &__header {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
+        &__text {
+            line-height: 1.563rem;
+            padding-top: 12px;
+            padding-bottom: 22px;
+        }
+        &__button {
+            width: 11.75rem;
+            height: 2.813rem;
+    
+            p {
+                font-size: 0.875rem;
+            }
+        }
+        &__button-blur {
+            width: 9.375rem;
+            height: 2.813rem;
+            filter: blur(24px);
+            top: 20px;
+            left: 15px;
+        }
     }
 }

@@ -88,6 +88,8 @@ header {
 }
 .header-start {
     &__content-block {
+        display: flex;
+        flex-direction: column;
         width: 34.688rem;
         padding-top: 27.7px;
     }
