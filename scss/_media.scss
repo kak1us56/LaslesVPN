@@ -148,7 +148,7 @@
 
     .section {
         &__header-start {
-            padding-top: 92px;
+            padding-top: 70px;
             min-height: 100px;
         }
         &__img-block {
@@ -182,7 +182,7 @@
             width: 9.375rem;
             height: 2.813rem;
             filter: blur(24px);
-            top: 20px;
+            top: 12px;
             left: 15px;
         }
     }
@@ -340,17 +340,160 @@
             }
         }
         &__button-blur {
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-            width: 7.938rem;
-            height: 2.813rem;
-            background: rgba(245, 56, 56, 0.35);
+            width: 6.25rem;
+            height: 2.188rem;
             filter: blur(27px);
-            border-radius: 60px;
-            top: 17px;
-            left: 25px;
-            z-index: 1;
+            top: 11px;
+            left: 13px;
+        }
+    }
+
+    .map {
+        gap: 35px;
+    
+        &__title-block {
+            gap: 10px;
+        }
+        &__header-block {
+            width: 21.25rem;
+        }
+        &__header {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
+        &__text-block {
+            width: 21.25rem;
+        }
+    }
+
+    .section__companies {
+        min-height: 60px;
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    .companies {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+
+        &__img-block img {
+            width: 107px;
+            height: 32px;
+        }
+    }
+
+    .section__carousel {
+        min-height: 200px;
+        padding-bottom: 182px;
+    }
+    .carousel {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    
+        &__title-block {
+            gap: 8px;
+        }
+        &__header-block {
+            width: 21.25rem;
+        }
+        &__header {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
+        &__text-block {
+            width: 21.25rem;
+        }
+        &__coments {
+            width: 340px;
+        }
+        &__coment {
+            gap: 10px;
+            width: 21.25rem;
+            height: 15.375rem;
+            padding: 30px 30px 0 30px;
+        }
+        &__coment-person {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__info-block {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        &__person-info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        &__coment-name {
+            font-size: 1.125rem;
+        }
+        &__coment-country {
+            font-size: 0.875rem;
+        }
+        &__coment-score-block {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+        &__coment-score {
+            color: #0B132A;
+        }
+        &__coment-text-block {
+            display: flex;
+            flex-wrap: wrap;
+            width: 17.25rem;
+        }
+        &__coment-text {
+            line-height: 1.625rem;
+            color: #0B132A;
+        }
+    }
+
+    .special-block {
+        &__block {
+            width: 21.25rem;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px 30px;
+        }
+        &__blur-block {
+            width: 20rem;
+            height: 13.75rem;
+            filter: blur(54px);
+            top: 8px;
+            left: 15px;
+        }
+        &__content-block {
+            text-align: center;
+            gap: 4px;
+        }
+        &__header-block {
+            width: 17.5rem;
+        }
+        &__header {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
+        &__button {
+            width: 11.75rem;
+            height: 2.813rem;
+    
+            p {
+                font-size: 0.875rem;
+            }
+        }
+        &__btn-blur {
+            width: 9.375rem;
+            height: 2.813rem;
+            filter: blur(24px);
+            top: 12px;
+            left: 15px;
         }
     }
 }

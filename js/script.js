@@ -132,7 +132,7 @@ arrowRight.addEventListener('click', () => {
 });
 
 
-// Links
+// Nav
 $('.go-to').click(function(e) {
     e.preventDefault();
     const link = this;
