@@ -5,7 +5,13 @@ const plan3 = document.querySelector('#plan3');
 const planButton1 = document.querySelector('#planButton1');
 const planButton2 = document.querySelector('#planButton2');
 const planButton3 = document.querySelector('#planButton3');
-const section = document.querySelector('.section__plan')
+const planButtonBlur1 = document.querySelector('#planButtonBlur1');
+const planButtonBlur2 = document.querySelector('#planButtonBlur2');
+const planButtonBlur3 = document.querySelector('#planButtonBlur3');
+const planButtonText1 = document.querySelector('#planButtonText1');
+const planButtonText2 = document.querySelector('#planButtonText2');
+const planButtonText3 = document.querySelector('#planButtonText3');
+const section = document.querySelector('.section__plan');
 
 function planActive(plan) {
     planInactive(plan1);
@@ -34,6 +40,24 @@ section.addEventListener('click', (e) => {
         planInactive(plan3);
     }
 })
+
+function clickButton(button, blur, text) {
+    button.classList.add('plan__button_active');
+    blur.classList.add('plan__button-blur_active');
+    text.classList.add('plan__button-text_active');
+
+    setTimeout(() => {
+        button.classList.remove('plan__button_active');
+        blur.classList.remove('plan__button-blur_active');
+        text.classList.remove('plan__button-text_active');
+    }, 250);
+}
+
+if (document.documentElement.clientWidth < 420) {
+    planButton1.addEventListener('click', () => clickButton(planButton1, planButtonBlur1, planButtonText1));
+    planButton2.addEventListener('click', () => clickButton(planButton2, planButtonBlur2, planButtonText2));
+    planButton3.addEventListener('click', () => clickButton(planButton3, planButtonBlur3, planButtonText3));
+}
 
 
 // Carousel
@@ -82,46 +106,87 @@ function moveBlock() {
         dotsBlock.style.cssText += 'z-index: -1;';
     }, 300);
 
-    dotsNodes[0].firstChild.style.cssText += 'opacity: 1;';
-    dotsNodes[1].firstChild.style.cssText += 'opacity: 1;';
-    dotsNodes[2].firstChild.style.cssText += 'opacity: 1;';
-    dotsNodes[3].firstChild.style.cssText += 'opacity: 1;';
-    dotsNodes[4].firstChild.style.cssText += 'opacity: 1;';
-
-    let i = 0;
-    for (dot of dotsNodes) {
-        if (dot.closest('.active')) {
-            if (i === 4) {
+    if (dotsNodes.length === 5) {
+        dotsNodes[0].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[1].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[2].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[3].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[4].firstChild.style.cssText += 'opacity: 1;';
+    
+        let i = 0;
+        for (dot of dotsNodes) {
+            if (dot.closest('.active')) {
+                if (i === 4) {
+                    dot.firstChild.style.cssText += 'opacity: 0;';
+                    dotsBlock.style.cssText += 'left: 120px;';
+                    dotsBlock.style.cssText += 'width: 15px;';
+                } else {
+                    dot.firstChild.style.cssText += 'opacity: 0;';
+                    dotsNodes[i+1].firstChild.style.cssText += 'opacity: 0;';
+                    dotsBlock.style.cssText += 'width: 45px;';
+                    switch (i) {
+                        case 0:
+                            dotsBlock.style.cssText += 'left: 0;';
+                            break;
+                        case 1:
+                            dotsBlock.style.cssText += 'left: 30px;';
+                            break;
+                        case 2:
+                            dotsBlock.style.cssText += 'left: 60px;';
+                            break;
+                        case 3:
+                            dotsBlock.style.cssText += 'left: 90px;';
+                            break;
+                    }
+                }
+            }
+            i++;
+        }
+    } else {
+        dotsNodes[0].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[1].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[2].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[3].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[4].firstChild.style.cssText += 'opacity: 1;';
+        dotsNodes[5].firstChild.style.cssText += 'opacity: 1;';
+    
+        let i = 0;
+        for (dot of dotsNodes) {
+            if (dot.closest('.active')) {
                 dot.firstChild.style.cssText += 'opacity: 0;';
-                dotsBlock.style.cssText += 'left: 120px;';
                 dotsBlock.style.cssText += 'width: 15px;';
-            } else {
-                dot.firstChild.style.cssText += 'opacity: 0;';
-                dotsNodes[i+1].firstChild.style.cssText += 'opacity: 0;';
-                dotsBlock.style.cssText += 'width: 45px;';
                 switch (i) {
                     case 0:
                         dotsBlock.style.cssText += 'left: 0;';
                         break;
                     case 1:
-                        dotsBlock.style.cssText += 'left: 30px;';
+                        dotsBlock.style.cssText += 'left: 24px;';
                         break;
                     case 2:
-                        dotsBlock.style.cssText += 'left: 60px;';
+                        dotsBlock.style.cssText += 'left: 48px;';
                         break;
                     case 3:
-                        dotsBlock.style.cssText += 'left: 90px;';
+                        dotsBlock.style.cssText += 'left: 72px;';
+                        break;
+                    case 4:
+                        dotsBlock.style.cssText += 'left: 96px;';
+                        break;
+                    case 5:
+                        dotsBlock.style.cssText += 'left: 120px;';
                         break;
                 }
             }
+            i++;
         }
-        i++;
     }
 }
 
 moveBlock();
 owlDots.addEventListener('click', moveBlock);
 sectionCarousel.addEventListener('mouseup', () => {
+    setTimeout(moveBlock, 4);
+});
+sectionCarousel.addEventListener('touchend', () => {
     setTimeout(moveBlock, 4);
 });
 arrowLeft.addEventListener('click', () => {
@@ -133,13 +198,13 @@ arrowRight.addEventListener('click', () => {
 
 
 // Nav
-$('.go-to').click(function(e) {
-    e.preventDefault();
-    const link = this;
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $(link.hash).offset().top
-    }, 1400);
-});
+// $('.go-to').click(function(e) {
+//     e.preventDefault();
+//     const link = this;
+//     $([document.documentElement, document.body]).animate({
+//         scrollTop: $(link.hash).offset().top
+//     }, 1400);
+// });
 
 
 // To-top

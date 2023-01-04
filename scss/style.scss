@@ -230,19 +230,6 @@ header {
     min-height: 2083px;
     background: linear-gradient(180deg, #F8F8F8 -45.04%, rgba(248, 248, 248, 0) 88.56%);
 }
-.plan__button {
-    &:hover {
-        background-color: #F53838;
-
-        p {
-            color: #fff;
-        }
-        .plan__button-blur {
-            visibility: visible;
-            opacity: 1;
-        }
-    }
-}
 .plan {
     display: flex;
     flex-direction: column;
@@ -334,13 +321,13 @@ header {
         border-radius: 50px;
         z-index: 2;
         cursor: pointer;
-        transition: all 0.3s linear;
-
-        p {
-            font-size: 1rem;
-            line-height: 1.188rem;
-            color: #F53838;
-        }
+        transition: all .2s linear;
+    }
+    &__button-text {
+        font-size: 1rem;
+        line-height: 1.188rem;
+        color: #F53838;
+        transition: all .2s linear;
     }
     &__button-blur {
         visibility: hidden;

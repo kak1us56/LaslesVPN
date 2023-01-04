@@ -26,6 +26,20 @@
         }
     }
 
+    .plan__button {
+        &:hover {
+            background-color: #F53838;
+    
+            p {
+                color: #fff;
+            }
+            .plan__button-blur {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
     .to-top__block {
         &:hover {
             background: #F53838;
@@ -285,6 +299,16 @@
     .section__plan {
         min-height: 200px;
     }
+    .plan__button_active {
+        background-color: #F53838;
+    }
+    .plan__button-text_active {
+        color: #fff;
+    }
+    .plan__button-blur_active {
+        visibility: visible;
+        opacity: 1;
+    }
     .plan {
         gap: 30px;
         padding-bottom: 60px;
@@ -338,10 +362,9 @@
             width: 9.125rem;
             height: 2.188rem;
             border-radius: 50px;
-    
-            p {
-                font-size: 0.9rem;
-            }
+        }
+        &__button-text {
+            font-size: 0.9rem;
         }
         &__button-blur {
             width: 6.25rem;
@@ -506,7 +529,7 @@
         background-color: #F8F8F8;
         min-height: 100px;
         padding-top: 160px;
-        padding-bottom: 100px;
+        padding-bottom: 50px;
     }
     .footer {
         flex-direction: column;
@@ -548,5 +571,9 @@
     }
     .accordion-button:focus {
         box-shadow: none;
+    }
+
+    .to-top {
+        display: none;
     }
 }
