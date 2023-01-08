@@ -62,7 +62,7 @@ if (document.documentElement.clientWidth < 420) {
 
 // Carousel
 $('.owl-carousel').owlCarousel({
-    loop:false,
+    loop:true,
     margin:50,
     nav:true,
     dotsEach:true,
@@ -97,16 +97,23 @@ const arrowLeft = document.querySelector('.arrow-left');
 const arrowRight = document.querySelector('.arrow-right');
 const dotsNodes = owlDots.childNodes;
 
-owlDot.innerHTML += '<div class="dots-block"></div>';
-const dotsBlock = document.querySelector('.dots-block');
+owlDot.innerHTML += '<div class="dots-block" id="dotsBlock1"></div><div class="dots-block" id="dotsBlock2"></div>';
+const dotsBlock = document.querySelector('#dotsBlock1');
+const dotsBlock2 = document.querySelector('#dotsBlock2');
+dotsBlock2.style.cssText += 'width: 15px;';
 
 function moveBlock() {
+    dotsBlock2.style.cssText += 'opacity: 0;';
     dotsBlock.style.cssText += 'z-index: 1;';
     setTimeout(() => {
         dotsBlock.style.cssText += 'z-index: -1;';
     }, 300);
+    dotsBlock2.style.cssText += 'z-index: 1;';
+    setTimeout(() => {
+        dotsBlock2.style.cssText += 'z-index: -1;';
+    }, 300);
 
-    if (dotsNodes.length === 5) {
+    if (document.documentElement.clientWidth > 420) {
         dotsNodes[0].firstChild.style.cssText += 'opacity: 1;';
         dotsNodes[1].firstChild.style.cssText += 'opacity: 1;';
         dotsNodes[2].firstChild.style.cssText += 'opacity: 1;';
@@ -117,9 +124,12 @@ function moveBlock() {
         for (dot of dotsNodes) {
             if (dot.closest('.active')) {
                 if (i === 4) {
+                    dotsNodes[0].firstChild.style.cssText += 'opacity: 0;';
                     dot.firstChild.style.cssText += 'opacity: 0;';
                     dotsBlock.style.cssText += 'left: 120px;';
                     dotsBlock.style.cssText += 'width: 15px;';
+                    dotsBlock2.style.cssText += 'left: 0;';
+                    dotsBlock2.style.cssText += 'opacity: 1;';
                 } else {
                     dot.firstChild.style.cssText += 'opacity: 0;';
                     dotsNodes[i+1].firstChild.style.cssText += 'opacity: 0;';
@@ -148,7 +158,6 @@ function moveBlock() {
         dotsNodes[2].firstChild.style.cssText += 'opacity: 1;';
         dotsNodes[3].firstChild.style.cssText += 'opacity: 1;';
         dotsNodes[4].firstChild.style.cssText += 'opacity: 1;';
-        dotsNodes[5].firstChild.style.cssText += 'opacity: 1;';
     
         let i = 0;
         for (dot of dotsNodes) {
@@ -160,18 +169,15 @@ function moveBlock() {
                         dotsBlock.style.cssText += 'left: 0;';
                         break;
                     case 1:
-                        dotsBlock.style.cssText += 'left: 24px;';
+                        dotsBlock.style.cssText += 'left: 30px;';
                         break;
                     case 2:
-                        dotsBlock.style.cssText += 'left: 48px;';
+                        dotsBlock.style.cssText += 'left: 60px;';
                         break;
                     case 3:
-                        dotsBlock.style.cssText += 'left: 72px;';
+                        dotsBlock.style.cssText += 'left: 90px;';
                         break;
                     case 4:
-                        dotsBlock.style.cssText += 'left: 96px;';
-                        break;
-                    case 5:
                         dotsBlock.style.cssText += 'left: 120px;';
                         break;
                 }
@@ -197,6 +203,41 @@ arrowRight.addEventListener('click', () => {
 });
 
 
+// Border
+const owlStage = document.querySelector('.owl-stage');
+const stageNodes = owlStage.childNodes;
+
+function borderApear() {
+    let k = 0;
+    for (coment of stageNodes) {
+        coment.firstChild.style.cssText += 'border: 2px solid #ddd;';
+    }
+
+    for (coment of stageNodes) {
+        if (coment.closest('.active')) {
+            stageNodes[k].firstChild.style.cssText += 'border: 2px solid #F53838;';
+            break;
+        }
+        k++;
+    }
+}
+
+borderApear();
+owlDots.addEventListener('click', borderApear);
+sectionCarousel.addEventListener('mouseup', () => {
+    setTimeout(borderApear, 4);
+});
+sectionCarousel.addEventListener('touchend', () => {
+    setTimeout(borderApear, 4);
+});
+arrowLeft.addEventListener('click', () => {
+    setTimeout(borderApear, 4);
+});
+arrowRight.addEventListener('click', () => {
+    setTimeout(borderApear, 4);
+});
+
+
 // Nav
 // $('.go-to').click(function(e) {
 //     e.preventDefault();
@@ -209,9 +250,8 @@ arrowRight.addEventListener('click', () => {
 
 // To-top
 const toTop = document.querySelector('#to-top');
-const windowPosition = window.scrollY;
 
-if (windowPosition > 700) {
+if (window.scrollY > 700) {
     toTop.classList.add('up_active')
 }
 
